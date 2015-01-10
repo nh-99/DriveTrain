@@ -88,7 +88,6 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        motors.getDriveTrain().arcadeDrive(oi.getHID()); // Um. I think this is all that's needed for manual operation
     }
 
     /**
