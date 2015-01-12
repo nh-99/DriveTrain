@@ -11,13 +11,16 @@
 
 package org.usfirst.frc5506.DriveTrain.commands;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc5506.DriveTrain.Robot;
 
 /**
  *
  */
 public class  ArcadeDriveJoystick extends Command {
+	private Joystick hid =  Robot.oi.getHID();
 
     public ArcadeDriveJoystick() {
         // Use requires() here to declare subsystem dependencies
@@ -34,7 +37,9 @@ public class  ArcadeDriveJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.motors.drive(Robot.oi.getHID().getY() * -1, Robot.oi.getHID().getX());
+    	double forwardSpeed = hid.getY() * -1;
+    	double turningSpeed = hid.getX();
+    	Robot.motors.getDriveTrain().drive(forwardSpeed, turningSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

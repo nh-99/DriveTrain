@@ -42,13 +42,12 @@ public class Motors extends Subsystem {
     	//Not needed (yet)
     }
     
-    /**
-     * Make the robot DRIVE
-     * @param speedForwards
-     * @param speedTurning
-     */
-    public void drive(double speedForwards, double speedTurning) {
-    	driveTrain.drive(speedForwards, speedTurning);
+    public RobotDrive getDriveTrain() {
+    	return driveTrain;
+    }
+    
+    public void stop() {
+    	driveTrain.drive(0, 0);
     }
 }
 
