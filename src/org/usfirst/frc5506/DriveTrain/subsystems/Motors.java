@@ -12,8 +12,9 @@
 package org.usfirst.frc5506.DriveTrain.subsystems;
 
 import org.usfirst.frc5506.DriveTrain.RobotMap;
-import edu.wpi.first.wpilibj.*;
+import org.usfirst.frc5506.DriveTrain.commands.ArcadeDriveJoystick;
 
+import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -41,8 +42,13 @@ public class Motors extends Subsystem {
     	//Not needed (yet)
     }
     
-    public RobotDrive getDriveTrain() {
-    	return driveTrain;
+    /**
+     * Make the robot DRIVE
+     * @param speedForwards
+     * @param speedTurning
+     */
+    public void drive(double speedForwards, double speedTurning) {
+    	driveTrain.drive(speedForwards, speedTurning);
     }
 }
 
